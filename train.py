@@ -1154,7 +1154,9 @@ def main():
                     scale_term = -0.5 * args.beta_dpo
                     inside_term = scale_term * (model_diff - ref_diff)
                     implicit_acc = (inside_term > 0).sum().float() / inside_term.size(0)
-                    loss = -1 * F.logsigmoid(inside_term).mean()
+                    dpo_loss = -1 * F.logsigmoid(inside_term).mean()
+
+                    loss = 0.5*dpo_loss + 0.5*model_losses_w.mean()
                 #### END LOSS COMPUTATION ###
                     
                 # Gather the losses across all processes for logging 

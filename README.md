@@ -1,11 +1,7 @@
 # Intro
 
 This is the training code for *SUDO: Enhancing Text-to-Image Diffusion Models with
-Self-Supervised Direct Preference Optimization*. It is based on [Diffusion-DPO](https://arxiv.org/abs/2311.12908), thanks for the great work!
-
-# Model Checkpoints
-
-We provide the pre-trained SD 1.5 model at.
+Self-Supervised Direct Preference Optimization*. We will provide pre-trained models soon. This repository is based on [Diffusion-DPO](https://arxiv.org/abs/2311.12908), thanks for the great work!
 
 # Setup
 
@@ -67,8 +63,11 @@ CUDA_VISIBLE_DEVICES=0,1 accelerate launch --mixed_precision="fp16"  train.py \
 - `--gradient_checkpointing` turned on automatically for SDXL
 
 - `--learning_rate`
+
 - `--lr_scheduler` Type of LR warmup/decay. Default is linear warmup to constant
+
 - `--lr_warmup_steps` number of scheduler warmup steps
+
 - `--use_adafactor` Adafactor over Adam (lower memory, default for SDXL)
 
 ### Data
